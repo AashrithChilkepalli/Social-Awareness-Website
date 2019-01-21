@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Blog Feed</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/BlogFeed.css">
+	<!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"--> 
+        <script async src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script async src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        <style>
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  @media only screen and (max-width: 1169px){
+            .affix {
+      top: 0;
+	left:0;
+      margin:0 auto;
+      width: 100%;
+	z-index:5;
+      }}
+            @media only screen and (min-width: 1170px){
+                .affix {
+      top: 0;
+	margin:0 auto;
+	left:0;
+	z-index:5;
+      ;
+      }}
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
+  </style>
+        <script type=text/javascript>
+        /* Set the width of the side navigation to 250px */
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+/* Set the width of the side navigation to 0 */
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+        </script>
+        <script type="text/javascript">
+	function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+	}
+        function IScrollHandler(){
+                    var wrap = document.getElementById('wrap');
+            var Feed= document.getElementById('FeedContainer')
+                      var contentHeight = Feed.offsetHeight;  //Get Content Height
+                      var yOffset = window.pageYOffset;//Get Vertical Scroll Position
+            var y= yOffset + window.innerHeight; //InnerHeight is length of Window i.e. Only the webpage area height
+            if(y>= contentHeight){
+			var i = readCookie('blogs')
+			if (i>0){
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', window.location.href);
+			xhr.onload = function() {	 
+			wrap.innerHTML+=xhr.responseText;
+			}
+			xhr.send();
+			}
+                //wrap.innerHTML+='<section class="panel panel-success"><div class="panel-heading"><h2>Blog Title- Day X<small><br><img src="http://dummyimage.com/45" class="img-thumbnail" alt="Profile Picture">&nbsp;By *Username*</small></h2></div><div class="panel-body">Blog Testing<br>Dynamic Content Load...<br><a href="#">Read More</a></div><div class="panel-footer"><span class="glyphicon glyphicon-heart"></span><span class="badge">65</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-comment"><span class="badge">12</span></span></div></section>' //Use Dynamic Data Requests here
+            }
+        }
+                    window.onscroll = IScrollHandler;
+        </script>
+    </head>
+    <body>
+        <div id="mySidenav" class="sidenav12">
+  <a href="javascript:void(0)" class="closebtnnav" onclick="closeNav()">&times;</a>
+    <li> <a href="#"><img src={{user['picture']}} class="img-circle" alt="Profile Picture"></a></li>
+  <a href="#">{{user['email']}}</a>
+  <a href="#">Account Settings</a>
+            <div class="dropdown" id="SideDrop">
+            <a a class="dropdown-toggle" data-toggle="dropdown" href="#">Notifications<span class="badge">17</span></a>
+                <ul class="dropdown-menu" >
+                   <li> <a href="#">Event Updates <span class="badge">5</span></a><br></li>               
+                <li><a href="#">Comments <span class="badge">10</span></a><br></li>
+                    <li><a href="#">Request Updates <span class="badge">2</span></a></li>
+                </ul>
+            </div>
+  
+  <a href="/login">Log Out</a>
+        <footer><small style="color:white"><span class="glyphicon glyphicon-copyright-mark"></span>Green Clique 2016</small></footer>    
+</div>
+
+        <div class="container-fluid">
+            <div class="jumbotron row">
+                <div class="panel panel-default" id="UserPanel">
+                    <span style="font-size:25px;cursor:pointer" onclick="openNav()" id="UserBox"><img class="img-thumbnail" src={{user['picture']}} alt="ProfilePic"> {{user['email']}}<span class="glyphicon glyphicon-chevron-right"></span></span></div>
+        <h1 class="text-center" id="Header">Green Clique</h1>  
+            </div>
+        </div>
+            <nav class="container-fluid navbar">
+               <div class="navbar-inverse navbar-custom row" data-spy="affix" data-offset-top="250">
+                   <div class="navbar-header">
+                       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span> 
+                       </button>
+                          <a class="navbar-brand" href="/" id="Navheader">Green Clique</a>
+                   </div>
+                   <div class="collapse navbar-collapse" id="MainNavBar">
+                  <ul class="nav nav-pills nav-justified ">
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Profile</a>
+                      <ul class="dropdown-menu" >
+                          <li><a href="#">Home</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">Edit Profile</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Friends</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">Groups</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">Account Settings</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">My Activites</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Blog</a>
+                      <ul class="dropdown-menu" >
+                          <li><a href="#">Create Blog</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">Latest Feed</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Featured Blogs</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">From Friends</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">My Blogs</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Events</a>
+                      <ul class="dropdown-menu" >
+                          <li><a href="#">New<br>Community Event</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">Promoted Events</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Latest Events</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">My Events</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Request</a>
+                      <ul class="dropdown-menu" >
+                          <li><a href="#">New Request</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">Current Requests</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">Emergency Requests</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">My Requests</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Donate</a>
+                      <ul class="dropdown-menu" >
+                          <li><a href="#">Donate Now</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">Donation Statistics</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">My Donations</a></li>
+                          </ul>
+                      </li>
+                      <li class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Go Green</a>
+                      <ul class="dropdown-menu" >
+                          <li><a href="#">Making a Difference</a></li>
+                           <li class="divider"></li>
+                          <li><a href="#">Green Computing<br>Methdologies</a></li>
+                          <li class="divider"></li>
+                          <li><a href="#">How you can<br>save the World</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+                   </div>
+                </div>
+            </nav>
+        <div class="container" id="FeedContainer">
+	{% for blog in blogs %}
+            <section class="panel panel-success">
+              <div class="panel-heading"><h2>{{blog.subject}}<small><br><img src={{blog.picture}} class="img-thumbnail" alt="Profile Picture">&nbsp;By {{blog.name}}</small></h2></div>
+                <div class="panel-body">{{p.sub('',blog.content[:50])}}...<br><a href="/blog/{{blog.key().id()}}">Read More</a></div>
+                <div class="panel-footer"><span class="glyphicon glyphicon-eye-open"></span><span class="badge">{{blog.views}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-comment"></span><span class="badge">{{blog.comments}}</span></div>
+            </section>
+	{% endfor %}
+            <!--section class="panel panel-success">
+              <div class="panel-heading"><h2>Blog Title- Day 2<small><br><img src="http://dummyimage.com/45" class="img-thumbnail" alt="Profile Picture">&nbsp;By *Username*</small></h2></div>
+                <div class="panel-body">Blog Testing<br>Still stuck doing this website...<br><a href="#">Read More</a></div>
+                <div class="panel-footer"><span class="glyphicon glyphicon-heart"></span><span class="badge">65</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-comment"><span class="badge">12</span></span></div>
+            </section-->
+           
+        <div  id="wrap"></div>
+             <footer><small><span class="glyphicon glyphicon-copyright-mark"></span>Green Clique 2017</small></footer>
+            </div>
+    </body>
+</html>

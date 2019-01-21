@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <link rel="stylesheet" href="/styles/BlogTemplate.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>{{data.subject}}</title>
+    </head>
+    <body>
+
+        <article >
+<div class="container">
+<div class="col-lg-12">
+            <header class="BlogHeading" id="BlogTitle">{{data.subject}}</header>
+                <header class="BlogHeading" ><br><img src={{data.picture}} id="DisplayPicture" alt="DisplayPicture">
+                <br></header>
+</div>
+</div>
+<div class="container">
+<div class="col-lg-12">
+            <header class="BlogHeading" id="BlogAuthor">{{data.name}}<br></header>
+            
+<header class="BlogHeading" id="PostTime">{{data.created}}</header>
+</div>
+</div>
+            <br><br><br>
+<div class="container">
+<div class="col-lg-12">
+            <div class="BlogContent">{{data.content}}</div>
+</div>
+</div>
+            <br><br>
+<div class="container">
+<div class="col-lg-12">
+            <div class="BlogComments"><h3>Leave a Comment</h3>
+            <form name="CommentForm" id="CommentForm" method = "post">
+            Name:<input type="text" name="name" id="CommenterName">
+            <br><br>Email:<input type="email" name="email" id="CommenterEmail"><br>
+                <br><textarea id="comment" name= "comment"></textarea><br>
+            <input type="submit" name="SubmitComment" id="SubmitComment" value="Submit">
+            </form>
+                <section class="BlogComments" id="CommentList"><br><br>
+		{% for comm in comments %}
+		{{comm.name}}<br><br>
+		{{comm.email}}<br><br>
+		{{comm.comment}}<br><br>
+		{% endfor %}
+		</section>
+            </div>
+</div>
+</div>
+        </article>
+
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </body>
+
+</html>

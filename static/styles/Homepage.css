@@ -1,0 +1,171 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+/*
+  ========================================
+  Clearfix - So that elements with Floats will be rendered properly
+  ========================================
+*/
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+
+/* End ClearFix */
+body
+{
+    background-color: #5cb85c;
+    color: #5cb85c;
+    font-family: "Open Sans",sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+.hello
+{
+  
+    
+    text-align: center;
+}
+.Gridimages
+{
+   width: 300px;
+    height: 200px;
+}
+
+.span12
+{
+text-align: center;
+}
+.lala
+{
+text-align: center;
+}
+.mama
+{
+margin: auto;
+
+}
+.kaka
+{
+margin: auto;
+}
+#Subhead{
+    color: black;
+  font-size: 36px;
+    font-weight: 700;
+}
+h3{
+    text-align: center;
+    color:black;
+    font-weight: 700;
+    font-size: 30px;
+}
+a:hover {
+  color: darkolivegreen /*rgb(3,67,9)*/;
+    text-decoration: none;
+}
+a{
+  color: white; /*rgb(35,131,86);*/
+    text-decoration: none;
+}
+.Copyright-footer small{
+    padding-top: 44px;
+    padding-bottom: 44px;
+    float: left;
+    font-weight: 300;
+    color: black;
+font-family: 'Oswald', sans-serif;
+}
+p, h1,h3{
+    
+    color: #648880;
+    color:black;
+}
+.btn{
+    border-radius: 5px;
+    display: inline-block;
+    margin:0;
+    border-radius: 5px;
+    cursor: pointer;   
+}
+
+.ButtonC{
+    color: aqua;
+    text-align: center;
+    font-weight: 700;
+  padding:22px 80px 66px 80px;
+}
+.btn-intro:hover{
+    border:3px;
+    background-color: darkgreen;
+    color:rgb(220,225,210);
+}
+.Logo{
+    padding: 50px 50px 50px 40px;
+    border-top: 4px solid rgb(220,255,210);
+    float:justify;
+    font-size: 50px;
+    font-weight: 500;
+    position: relative;
+text-align: center;
+    
+}
+.dell{
+    
+    background: #5cb85c;
+    
+}
+             
+            
+            .parallax-bg {
+                padding: 300px 0;
+                background-image: url("http://img1.ndsstatic.com/wallpapers/95345da28aa20c1c19e5b7b33a13d287_large.jpeg");
+                background-size: cover;
+                background-attachment: fixed;
+background-repeat: no-repeat;
+                -webkit-transition: all 0.2s ease;
+                -moz-transition: all 0.2s ease;
+                transition: all 0.2s ease;
+            }
+            
+
+            .parallax-bg h1 {
+                text-align: center;
+                text-transform: uppercase;
+                color: #fff;
+                font-size: 70px;
+                font-family: 'Oswald', sans-serif;
+            }
+* {
+                margin: 0;
+                padding: 0;
+            }
+.btn-intro {
+    border: 1px;
+    border-color: white;
+    border-style: solid;
+    padding: 10px 30px;
+    font-size: 24px;
+    margin: 0;
+}
+.centry
+{
+  padding: 50px 50px 50px 40px;
+    float:justify;
+    position: relative;
+text-align: center;
+}
+p {text-align: center;
+vertical-align: middle;
+display: flex;
+    align-items: center;
+    justify-content: center
+}

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="478095448209-ff2evbl57jb3rdbc0vl0fkfi5pv88t0j.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <link rel="stylesheet" href="styles/Login.css">
+        <title>Login</title>
+    </head>
+    <body>
+	<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+	<a href="#" onclick="signOut();">Sign out</a>
+	<p>Hi! {{name}}</p>
+	<script>
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log("Name: " + profile.getName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+	var xhr = new XMLHttpRequest();
+	xhr.open('POST', window.location.href);
+	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.onload = function() {
+  	console.log('Signed in as: ' + xhr.responseText);	 
+	//document.cookie = xhr.responseText;
+	};
+	xhr.send('idtoken=' + id_token);
+	
+      };
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    document.cookie = "name=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  }
+        </script>
+        <header class="Container group"><h1 class="Logo"><a href="Login2.html">Green Clique</a></h1></header>
+        <section class="Container"><p id="SubHead">Already a member?<br>Login now and start using our features</p></section>
+        <section class="GradientContainer">
+            <section class="Container FormContainer">
+           
+                <form id="LoginForm">
+                    <fieldset class="Account-Info">
+                    <label>EmailID<br><input type="email" name="EmailBox" id="EmailBox" required placeholder="Enter Email Here"></label><br>
+                        <label>Password<br><input type="password" name="Password" id="Password" required placeholder="Enter Password Here"> </label>
+                    </fieldset> 
+                    <fieldset class="Account-Action">
+                    <input type="submit" name="submit" class="btn" value="Login">
+                        <label><input type="checkbox" value="StaySignedIn" name="SSN">Stay Signed In</label>
+                    </fieldset>
+                </form>
+            </section>
+        </section>
+        <footer class="Container group Copyright-footer"><small>&copy;Green-Clique 2016</small></footer>
+    </body>
+</html>

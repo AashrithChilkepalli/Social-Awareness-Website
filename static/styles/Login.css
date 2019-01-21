@@ -1,0 +1,116 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*
+  ========================================
+  Clearfix - So that elements with Floats will be rendered properly
+  ========================================
+*/
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+
+/* End ClearFix */
+body{
+    background-color:rgb(220,255,210);
+    color: #888;
+    font-family: "Open Sans",sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+.Container{
+  
+    margin: 0 auto;
+    width: 1200px;
+}
+a{
+    color:darkolivegreen;
+    text-decoration: none;
+}
+a:hover {
+  color: rgb(3,67,9);
+    text-decoration: none;
+}
+.Logo{
+    padding: 40px 50px 15px 60px;
+    border-top: 4px solid rgb(220,255,210);
+    font-size: 70px;
+    font-weight: 800;
+    position: relative;
+    left: 200px;
+    
+}
+#SubHead{
+    font-family:"Open-Sans",sans-serif;
+    font-size: 36px;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    
+}
+.GradientContainer{
+    min-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+    background: linear-gradient(to right,rgb(163,213,98),rgb(220,255,210), #a1d3b0);
+}
+#LoginForm{
+    border:2px solid;
+    border-color:olive;
+    border-radius: 5px;
+    padding: 30px ;
+    background: linear-gradient(to right,#a1d3b0,rgb(220,255,210),rgb(163,213,98));
+    width: 450px;
+    position: relative;
+    top: 50%;
+    left: 30%;
+    
+}
+label{
+    text-align: left;
+}
+fieldset{
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+.Account-Info{
+    color: black;
+    font-size: 30px;
+    font-weight: 600;
+}
+.Account-Info input{
+    margin: 20px;
+    border-radius: 5px;
+    font-size: 30px;
+}
+.Account-Action input,.Account-Action{
+    color: black;
+    font-size: 25px;
+}
+.btn{
+    font-weight: 600;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+.Copyright-footer small{
+    padding-top: 44px;
+    padding-bottom: 44px;
+    float: left;
+    font-weight: 300;
+    color: black;
+}
